@@ -37,7 +37,7 @@ public class RegistrationController {
                             BindingResult bindingResult,
                             Model model ){
 
-        if (!userService.addUser(user)) {
+        if (!userService.addUser (user)) {
             model.addAttribute ("usernameError", "User exists!");
             return "registration";
         }

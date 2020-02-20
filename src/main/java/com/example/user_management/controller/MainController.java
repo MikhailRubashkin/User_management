@@ -24,17 +24,17 @@ public class MainController {
     public String greeting ( Model model ){
         String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
         model.addAttribute ("user", user);
-        model.addAttribute ("users", userRepo.findAll());
+        model.addAttribute ("users", userRepo.findAll ( ));
         return "main";
     }
 
     @PostMapping("filter")
-    public String filter ( @RequestParam String filter, Map<String, Object> model) {
+    public String filter ( @RequestParam String filter, Map<String, Object> model ){
         UserControllerFilterMethod (filter, model);
         return "main";
     }
 
-    private void UserControllerFilterMethod ( @RequestParam String filter, Map<String, Object> model ) {
+    private void UserControllerFilterMethod ( @RequestParam String filter, Map<String, Object> model ){
         String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
         Iterable<User> users;
         if (filter != null && !filter.isEmpty ( )) {

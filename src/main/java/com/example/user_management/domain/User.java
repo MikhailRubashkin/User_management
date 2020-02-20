@@ -30,17 +30,16 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
-    public Long getId() {
+    public Long getId (){
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId ( Long id ){
         this.id = id;
     }
 
 
-
-    public String getUsername() {
+    public String getUsername (){
         return username;
     }
 
@@ -62,39 +61,39 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled (){
-        return isActive();
+        return isActive ( );
     }
 
-    public void setUsername(String username) {
+    public void setUsername ( String username ){
         this.username = username;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities (){
-        return getRoles();
+        return getRoles ( );
     }
 
-    public String getPassword() {
+    public String getPassword (){
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword ( String password ){
         this.password = password;
     }
 
-    private boolean isActive() {
+    private boolean isActive (){
         return active;
     }
 
-    public void setActive(boolean active) {
+    public void setActive ( boolean active ){
         this.active = active;
     }
 
-    public Set<Role> getRoles () {
+    public Set<Role> getRoles (){
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles ( Set<Role> roles ){
         this.roles = roles;
     }
 

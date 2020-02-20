@@ -2,8 +2,8 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Bootstrap 4 Website Example</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -23,8 +23,8 @@
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark   ">
     <title>Bootstrap Example</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -48,7 +48,8 @@
     </form>
     <form action="/logout" method="post">
         <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-        <button class="btn btn-outline-success d-block ml-auto" type="submit">Hi{{#user}} {{user}} {{/user}}! Logout</button>
+        <button class="btn btn-outline-success d-block ml-auto" type="submit">Hi{{#user}} {{user}} {{/user}}! Logout
+        </button>
     </form>
 </nav>
 
@@ -56,8 +57,8 @@
 <html lang="en">
 <head>
     <title>Bootstrap Example</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -65,38 +66,37 @@
 </head>
 <body>
 <p class="container">
-    <h1> List of users </h1>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>id</th>
-            <th>Name</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+<h1> List of users </h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>First Name</th>
+        <th>Last Name</th>
 
-            <th>Date</th>
-            <th>Role</th>
-        </tr>
-        </thead>
-        {{#users}}
-        <tbody>
-        <tr>
-            <th>{{id}}</th>
-            <th><{{username}}></th>
-            <th>{{first_Name}}</th>
-            <th>{{last_Name}}</th>
+        <th>Date</th>
+        <th>Role</th>
+    </tr>
+    </thead>
+    {{#users}}
+    <tbody>
+    <tr>
+        <th>{{id}}</th>
+        <th><{{username}}></th>
+        <th>{{first_Name}}</th>
+        <th>{{last_Name}}</th>
 
-            <th><{{localDate}}></th>
-            <th>{{roles}}</th>
-        </tr>
-        </tbody>
-        {{/users}}
-    </table>
+        <th><{{localDate}}></th>
+        <th>{{roles}}</th>
+    </tr>
+    </tbody>
+    {{/users}}
+</table>
 </div>
 
 </body>
 </html>
-
 
 
 <div class="jumbotron text-left" style="margin-bottom:0">
@@ -105,7 +105,7 @@
         var dd = String(today.getDate()).padStart(2, '0');
         var MM = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         var yyyy = today.getFullYear();
-        var HH =today.getHours();
+        var HH = today.getHours();
         var mm = today.getMinutes();
         today = dd + '-' + MM + '-' + yyyy + '   ' + HH + ':' + mm;
         document.write(today);
