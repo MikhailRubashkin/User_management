@@ -22,14 +22,22 @@
     <form class="form-inline d-block ml-auto" action="/user" method="post">
         <label>
             {{#user}}<input class="form-control text-center" type="text" name="username" value="{{{username}}}"/>{{/user}}
-            <input class="form-control" type="checkbox" name="ADMIN" value="ADMIN">ADMIN
-            <input class="form-control" type="checkbox" name="USER" value="USER">USER
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <input class="dropdown-item" type="checkbox" name="ADMIN" value="ADMIN">ADMIN
+                    <input class="dropdown-item" type="checkbox" name="USER" value="USER">USER
+                </div>
+            </div>
+            {{#user}}
+            <input type="hidden" value="{{id}}" name="userId"/>
+            <input type="hidden" value="{{_csrf.token}}" name="_csrf"/>
+            {{/user}}
+            <button class="btn btn-outline-success" type="submit">Save</button>
         </label>
-        {{#user}}
-        <input type="hidden" value="{{id}}" name="userId"/>
-        <input type="hidden" value="{{_csrf.token}}" name="_csrf"/>
-        {{/user}}
-        <button class="btn btn-outline-success" type="submit">Save</button>
     </form>
 </div>
 </body>
