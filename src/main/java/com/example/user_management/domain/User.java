@@ -20,6 +20,8 @@ public class User implements UserDetails {
     private String last_Name;
     private boolean active;
     @Temporal(TemporalType.DATE)
+    @Column(updatable = false)
+    @org.hibernate.annotations.CreationTimestamp
     private Date localDate;
 
 
@@ -118,5 +120,49 @@ public class User implements UserDetails {
 
     public void setLocalDate ( Date localDate ){
         this.localDate = localDate;
+    }
+
+    @Override
+    public boolean equals ( Object o ){
+        if (this == o) return true;
+        if (o == null || getClass ( ) != o.getClass ( )) return false;
+
+        User user = (User) o;
+
+        if (active != user.active) return false;
+        if (id != null ? !id.equals (user.id) : user.id != null) return false;
+        if (username != null ? !username.equals (user.username) : user.username != null) return false;
+        if (password != null ? !password.equals (user.password) : user.password != null) return false;
+        if (first_Name != null ? !first_Name.equals (user.first_Name) : user.first_Name != null) return false;
+        if (last_Name != null ? !last_Name.equals (user.last_Name) : user.last_Name != null) return false;
+        if (localDate != null ? !localDate.equals (user.localDate) : user.localDate != null) return false;
+        return roles != null ? roles.equals (user.roles) : user.roles == null;
+    }
+
+    @Override
+    public int hashCode (){
+        int result = id != null ? id.hashCode ( ) : 0;
+        result = 31 * result+(username != null ? username.hashCode ( ) : 0);
+        result = 31 * result+(password != null ? password.hashCode ( ) : 0);
+        result = 31 * result+(first_Name != null ? first_Name.hashCode ( ) : 0);
+        result = 31 * result+(last_Name != null ? last_Name.hashCode ( ) : 0);
+        result = 31 * result+(active ? 1 : 0);
+        result = 31 * result+(localDate != null ? localDate.hashCode ( ) : 0);
+        result = 31 * result+(roles != null ? roles.hashCode ( ) : 0);
+        return result;
+    }
+
+    @Override
+    public String toString (){
+        return "User{"+
+               "id="+id+
+               ", username='"+username+'\''+
+               ", password='"+password+'\''+
+               ", first_Name='"+first_Name+'\''+
+               ", last_Name='"+last_Name+'\''+
+               ", active="+active+
+               ", localDate="+localDate+
+               ", roles="+roles+
+               '}';
     }
 }
