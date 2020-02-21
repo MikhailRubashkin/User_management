@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -47,7 +49,13 @@ public class UserService implements UserDetailsService {
         if (userFromDb != null) {
             return false;
         }
-
+        String regex = "[а-яёА-ЯЁ]+";
+        String str = user.toString ( );
+        Pattern pattern = Pattern.compile (regex);
+        Matcher m = pattern.matcher (str);
+         if (m.find ( )) {
+            return false;
+        }
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
         user.setPassword(passwordEncoder.encode(user.getPassword()));
