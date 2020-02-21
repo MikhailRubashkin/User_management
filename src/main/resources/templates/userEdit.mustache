@@ -32,6 +32,16 @@
                     <input class="dropdown-item" type="checkbox" name="USER" value="USER">USER
                 </div>
             </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                     <input class="dropdown-item" type="checkbox" name="active" value="true">ACTIVE
+                    <input class="dropdown-item" type="checkbox" name="active" value="false">INACTIVE
+                </div>
+            </div>
             {{#user}}
             <input type="hidden" value="{{id}}" name="userId"/>
             <input type="hidden" value="{{_csrf.token}}" name="_csrf"/>
